@@ -149,17 +149,6 @@ stages {
     }
 }
 post {
-    aborted {
-        script {
-            println "Pipeline aborted. Executing post-actions for each deployment directory."
-            deploymentDirectories.each { deploymentDirectory ->
-                println "Executing post-actions.sh for ${deploymentDirectory}..."
-                sh """
-                    ./scripts/post-actions.sh ${deploymentDirectory}
-                """
-            }
-        }
-    }
     always {
         sh '''
             echo "Arranging the log files!"
