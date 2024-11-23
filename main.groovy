@@ -159,7 +159,7 @@ post {
             aws s3 cp s3://'''+s3BuildLogPath+'''/ ${localLogDir} --recursive --quiet
             echo "Job is completed... Deleting the workspace directories!"
         '''
-        // archiveArtifacts artifacts: "build-${env.BUILD_NUMBER}/**/*.*", fingerprint: true
+        archiveArtifacts artifacts: "build-${env.BUILD_NUMBER}/**/*.*", fingerprint: true
         // script {
            // sendEmail(deploymentDirectories, updateType)
         // }
